@@ -3,7 +3,7 @@ import cv2
 
 carCascade = cv2.CascadeClassifier('/home/crawler/Python Project/Getting-Started-with-OpenCV/Cascades/haarcascade_car.xml')
 
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture('images/cars.avi')
 cap.set(3,640)
 cap.set(4,480)
 
