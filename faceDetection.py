@@ -1,7 +1,7 @@
 import numpy as np
 import cv2
 
-faceCascade = cv2.CascadeClassifier('Cascades/haarcascade_frontalface_default.xml')
+faceCascade = cv2.CascadeClassifier('/home/crawler/Python Project/Getting-Started-with-OpenCV/Cascades/haarcascade_frontalface_default.xml')
 
 cap = cv2.VideoCapture(0)
 cap.set(3,640)
