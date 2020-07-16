@@ -20,15 +20,15 @@ image2 = cv2.drawKeypoints(img, keypoints_orb, None)
 
 
 
-cv2.imshow("Image", image)
+cv2.imshow("SIRF", image)
 cv2.waitKey(0)
 
 
-cv2.imshow("Image", image1)
+cv2.imshow("SURF", image1)
 cv2.waitKey(0)
 
 
-cv2.imshow("Image", image2)
+cv2.imshow("ORB", image2)
 cv2.waitKey(0)
 
 
