@@ -6,10 +6,10 @@ from PIL import Image
 from scipy import ndimage
     
 def load_dataset():
-    train_dataset = h5py.File('/home/crawler/Python Project/Getting-Started-with-OpenCV/Cat Classifier(ANN)/datasets/train_catvnoncat.h5', "r")
+    train_dataset = h5py.File('Cat Classifier(ANN)/datasets/train_catvnoncat.h5', "r")
     train_set_x_orig = np.array(train_dataset["train_set_x"][:])
     train_set_y_orig = np.array(train_dataset["train_set_y"][:])
-    test_dataset = h5py.File('/home/crawler/Python Project/Getting-Started-with-OpenCV/Cat Classifier(ANN)/datasets/test_catvnoncat.h5', "r")
+    test_dataset = h5py.File('Cat Classifier(ANN)/datasets/test_catvnoncat.h5', "r")
     test_set_x_orig = np.array(test_dataset["test_set_x"][:])
     test_set_y_orig = np.array(test_dataset["test_set_y"][:])
 
@@ -185,6 +185,19 @@ def main():
     frame = legend.get_frame()
     frame.set_facecolor('0.90')
     plt.show()
+    test = int(input("Press 1 to test it with your own image :\n"))
+    if(test == 1):
+        img_path = input("Upload the image in the directory and specify the relative path")
+        fname = img_path 
+        
+        image = np.array(ndimage.imread(fname, flatten=False))
+        image = image/255.
+        my_image = scipy.misc.imresize(image, size=(num_px,num_px)).reshape((1, num_px*num_px*3)).T
+        my_predicted_image = predict(d["w"], d["b"], my_image)
+
+        plt.imshow(image)
+        print("y = " + str(np.squeeze(my_predicted_image)) + ", your algorithm predicts a \"" + classes[int(np.squeeze(my_predicted_image)),].decode("utf-8") +  "\" picture.")
+
 
 if __name__=="__main__":
     main()
